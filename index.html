@@ -1,0 +1,502 @@
+5<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="app.title">DashMaster</title>
+
+    <!-- Google Fonts: Poppins + Inter (Arabic support) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet">
+
+    <!-- Icons + Main Styles -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- App Icon: Using dashboard icon from Boxicons -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232B6CB0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='bx bx-bar-chart-alt-2'%3E%3Cpath d='M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7'%3E%3C/path%3E%3Crect x='7' y='7' width='3' height='5'%3E%3C/rect%3E%3Crect x='14' y='2' width='3' height='10'%3E%3C/rect%3E%3C/svg%3E">
+    <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232B6CB0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='bx bx-bar-chart-alt-2'%3E%3Cpath d='M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7'%3E%3C/path%3E%3Crect x='7' y='7' width='3' height='5'%3E%3C/rect%3E%3Crect x='14' y='2' width='3' height='10'%3E%3C/rect%3E%3C/svg%3E">
+</head>
+<body>
+    <a href="#main" class="skip-link" data-i18n="common.skip_to_main">تخطي إلى المحتوى الرئيسي</a>
+    <input type="checkbox" id="nav-toggle" aria-hidden="true">
+    <nav class="sidebar" id="sidebar" aria-label="التنقل الجانبي">
+        <h2><i class="bx bx-bar-chart-alt-2 icon" aria-hidden="true"></i> <span data-i18n="app.title">DashMaster</span></h2>
+        <ul role="list">
+            <li><a href="#" class="active" data-page="dashboard-page" aria-current="page"><i class="bx bx-home-alt icon" aria-hidden="true"></i> <span data-i18n="sidebar.dashboard">الرئيسية</span></a></li>
+            <li><a href="#" data-page="users-page"><i class="bx bx-group icon" aria-hidden="true"></i> <span data-i18n="sidebar.users">المستخدمون</span></a></li>
+            <li><a href="#" data-page="products-page"><i class="bx bx-package icon" aria-hidden="true"></i> <span data-i18n="sidebar.products">المنتجات</span></a></li>
+            <li><a href="#" data-page="reports-page"><i class="bx bx-line-chart icon" aria-hidden="true"></i> <span data-i18n="sidebar.reports">التقارير</span></a></li>
+            <li><a href="#" data-page="settings-page"><i class="bx bx-cog icon" aria-hidden="true"></i> <span data-i18n="sidebar.settings">الإعدادات</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content" id="main-content">
+        <header>
+            <h2>
+                <label for="nav-toggle" aria-label="فتح/إغلاق القائمة الجانبية" aria-controls="sidebar">
+                    <i class="bx bx-menu icon" aria-hidden="true"></i>
+                </label>
+                <span data-i18n="header.welcome_back">أهلاً بك مجدداً</span>
+            </h2>
+            
+            <div class="language-switcher" aria-haspopup="listbox">
+              <button class="language-button" id="langBtn" aria-expanded="false" aria-controls="langMenu" aria-label="تغيير اللغة" data-i18n-attr="aria-label" data-i18n-aria-label="app.change_language" data-i18n-key-aria-label="app.change_language">
+                <i class='bx bx-globe' aria-hidden="true"></i>
+                <span id="current-lang-text" data-i18n="app.current_language">العربية</span>
+                <i class='bx bx-chevron-down' aria-hidden="true"></i>
+              </button>
+              <ul class="language-dropdown" id="langMenu" role="listbox">
+                <li><a href="#" role="option" class="lang-option" data-lang="ar">🇸🇦 العربية</a></li>
+                <li><a href="#" role="option" class="lang-option" data-lang="en">🇬🇧 English</a></li>
+                <li><a href="#" role="option" class="lang-option" data-lang="fr">🇫🇷 Français</a></li>
+              </ul>
+            </div>
+
+            <div class="user-wrapper">
+                <div class="notifications-wrapper">
+                    <button id="notifications-btn" aria-label="عرض الإشعارات" data-i18n-attr="aria-label" data-i18n-key-aria-label="header.notifications" aria-haspopup="true" aria-expanded="false" aria-controls="notifications-dropdown"><i class="bx bxs-bell-ring icon" aria-hidden="true"></i> <span class="badge" aria-hidden="true"></span></button>
+                    <div class="notifications-dropdown" id="notifications-dropdown" role="menu" aria-hidden="true">
+                        <!-- Notification items will be inserted here by JS -->
+                        <div class="notifications-list"></div>
+                        <a href="#" class="notifications-footer" data-i18n="notifications.view_all">عرض كل الإشعارات</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" aria-label="تبديل السمة (فاتح/داكن)"><i class="bx bxs-moon icon" aria-hidden="true"></i></button>
+                <img src="https://via.placeholder.com/40" width="40" height="40" alt="صورة ملف المستخدم">
+                <div>
+                    <h4 data-i18n="user.name">اسم المستخدم</h4>
+                    <small data-i18n="user.role">مدير</small>
+                </div>
+            </div>
+        </header>
+
+        <main id="main">
+            <div id="dashboard-page" class="page active">
+                <div class="cards">
+                    <div class="card-single">
+                        <div>
+                            <h1>54</h1>
+                            <span data-i18n="dashboard.cards.customers">العملاء</span>
+                        </div>
+                        <div>
+                            <i class="bx bx-group icon" aria-hidden="true"></i>
+                        </div>
+                        <a href="#" class="card-details-link" data-i18n="common.view_details">View Details</a>
+                    </div>
+                    <div class="card-single">
+                        <div>
+                            <h1>79</h1>
+                            <span data-i18n="dashboard.cards.projects">المشاريع</span>
+                        </div>
+                        <div>
+                            <i class="bx bx-briefcase-alt-2 icon" aria-hidden="true"></i>
+                        </div>
+                        <a href="#" class="card-details-link" data-i18n="common.view_details">View Details</a>
+                    </div>
+                    <div class="card-single">
+                        <div>
+                            <h1>124</h1>
+                            <span data-i18n="dashboard.cards.orders">الطلبات</span>
+                        </div>
+                        <div>
+                            <i class="bx bx-cart icon" aria-hidden="true"></i>
+                        </div>
+                        <a href="#" class="card-details-link" data-i18n="common.view_details">View Details</a>
+                    </div>
+                    <div class="card-single">
+                        <div>
+                            <h1>$6k</h1>
+                            <span data-i18n="dashboard.cards.income">الدخل</span>
+                        </div>
+                        <div>
+                            <i class="bx bx-dollar-circle icon" aria-hidden="true"></i>
+                        </div>
+                        <a href="#" class="card-details-link" data-i18n="common.view_details">View Details</a>
+                    </div>
+                </div>
+
+                <p id="notif" data-i18n="notifications.items_count" data-count="0">لا توجد إشعارات</p>
+                <p id="numExample" data-i18n="format.example_number" data-num="1234567.89">1,234,567.89</p>
+                <p id="dateExample" data-i18n="format.example_date" data-date="2025-01-15T12:00:00Z">2025-01-15</p>
+ 
+                <div class="recent-grid">
+                    <div class="projects">
+                        <section class="card" role="region" aria-labelledby="recent-projects-title">
+                            <header class="card-header">
+                                <h3 id="recent-projects-title" data-i18n="dashboard.recent_projects">مشاريع حديثة</h3>
+                                <div class="table-filters">
+                                    <div class="filter-group">
+                                        <label for="project-status-filter" class="visually-hidden">فلترة حسب الحالة</label>
+                                        <select id="project-status-filter">
+                                            <option value="all" data-i18n="forms.filter_status_all">كل الحالات</option>
+                                            <option value="مكتمل" data-i18n="status.completed">مكتمل</option>
+                                            <option value="قيد التنفيذ" data-i18n="status.in_progress">قيد التنفيذ</option>
+                                            <option value="مراجعة" data-i18n="status.review">مراجعة</option>
+                                            <option value="في الانتظار" data-i18n="status.pending">في الانتظار</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <i class="bx bx-search icon" aria-hidden="true"></i>
+                                        <label for="project-search" class="visually-hidden">البحث في المشاريع</label>
+                                        <input
+                                          type="search"
+                                          id="project-search"                                          
+                                          data-i18n-attr="placeholder,title,aria-label"                                          
+                                          data-i18n-key-placeholder="forms.search_placeholder"
+                                          data-i18n-key-title="forms.search_placeholder"
+                                          data-i18n-key-aria-label="forms.search_placeholder"
+                                          placeholder="ابحث في الجدول..."
+                                          title="ابحث في الجدول..."
+                                          aria-label="ابحث في الجدول...">
+                                    </div>
+                                </div>
+                            </header>
+                            <div class="card-body">
+                               <div class="table-responsive">
+                                    <table width="100%">
+                                        <caption class="visually-hidden">جدول بالمشاريع الحديثة</caption>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" data-column="name" role="button" tabindex="0" aria-sort="none">اسم المشروع <span><i class="bx sort-icon" aria-hidden="true"></i></span></th>
+                                                <th scope="col" data-column="department" role="button" tabindex="0" aria-sort="none">القسم <span><i class="bx sort-icon" aria-hidden="true"></i></span></th>
+                                                <th scope="col" data-column="status" role="button" tabindex="0" aria-sort="none">الحالة <span><i class="bx sort-icon" aria-hidden="true"></i></span></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="projects-tbody">
+                                            <!-- Skeleton Loading placeholders (will be replaced by JS) -->
+                                            <tr class="skeleton-row">
+                                                <td><div class="skeleton skeleton-text"></div></td>
+                                                <td><div class="skeleton skeleton-text sm"></div></td>
+                                                <td>
+                                                    <span class="skeleton skeleton-dot"></span>
+                                                    <div class="skeleton skeleton-text xs"></div>
+                                                </td>
+                                            </tr>
+                                            <tr class="skeleton-row">
+                                                <td><div class="skeleton skeleton-text"></div></td>
+                                                <td><div class="skeleton skeleton-text sm"></div></td>
+                                                <td>
+                                                    <span class="skeleton skeleton-dot"></span>
+                                                    <div class="skeleton skeleton-text xs"></div>
+                                                </td>
+                                            </tr>
+                                            <tr class="skeleton-row">
+                                                <td><div class="skeleton skeleton-text"></div></td>
+                                                <td><div class="skeleton skeleton-text sm"></div></td>
+                                                <td>
+                                                    <span class="skeleton skeleton-dot"></span>
+                                                    <div class="skeleton skeleton-text xs"></div>
+                                                </td>
+                                            </tr>
+                                            <tr class="skeleton-row">
+                                                <td><div class="skeleton skeleton-text"></div></td>
+                                                <td><div class="skeleton skeleton-text sm"></div></td>
+                                                <td>
+                                                    <span class="skeleton skeleton-dot"></span>
+                                                    <div class="skeleton skeleton-text xs"></div>
+                                                </td>
+                                            </tr>
+                                            <tr class="skeleton-row">
+                                                <td><div class="skeleton skeleton-text"></div></td>
+                                                <td><div class="skeleton skeleton-text sm"></div></td>
+                                                <td>
+                                                    <span class="skeleton skeleton-dot"></span>
+                                                    <div class="skeleton skeleton-text xs"></div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="customers">
+                        <section class="card" role="region" aria-labelledby="new-customers-title">
+                            <header class="card-header">
+                                <h3 id="new-customers-title" data-i18n="dashboard.new_customers">العملاء الجدد</h3>
+                                <button><span data-i18n="common.view_all">عرض الكل</span> <i class="bx bx-chevron-left icon" aria-hidden="true"></i></button>
+                            </header>
+                            <div class="card-body">
+                                <canvas id="revenue-chart" role="img" aria-label="مخطط يوضح الدخل خلال الأشهر" data-i18n-attr="aria-label" data-i18n-aria-label="charts.revenue_aria"></canvas>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div id="users-page" class="page">
+                <section class="card" role="region" aria-labelledby="all-users-title">
+                    <header class="card-header">
+                        <h3 id="all-users-title" data-i18n="users.all_users">كل المستخدمين</h3>
+                        <button id="add-user-btn" class="btn-primary"><span data-i18n="forms.add_user_button">إضافة مستخدم جديد</span> <i class="bx bx-plus icon" aria-hidden="true"></i></button>
+                    </header>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <caption class="visually-hidden">جدول بكل المستخدمين</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" data-i18n="users.table_header.name">الاسم</th>
+                                        <th scope="col" data-i18n="users.table_header.email">البريد الإلكتروني</th>
+                                        <th scope="col" data-i18n="users.table_header.role">الدور</th>
+                                        <th scope="col" data-i18n="users.table_header.actions">الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="users-tbody">
+                                    <!-- User rows will be inserted here by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="products-page" class="page">
+                <section class="card" role="region" aria-labelledby="all-products-title">
+                    <header class="card-header">
+                        <h3 id="all-products-title" data-i18n="products.manage_products">إدارة المنتجات</h3>
+                        <button id="add-product-btn" class="btn-primary"><span data-i18n="products.add_button">إضافة منتج جديد</span> <i class="bx bx-plus icon" aria-hidden="true"></i></button>
+                    </header>
+                    <div class="card-body">
+                        <div id="product-grid" class="product-grid">
+                            <!-- Product cards will be inserted here by JS -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="reports-page" class="page">
+                <div class="page-header">
+                    <h1 data-i18n="reports.title">صفحة التقارير</h1>
+                    <div class="export-buttons">
+                        <button id="export-pdf-btn" class="btn-secondary"><i class="bx bxs-file-pdf icon"></i> <span data-i18n="reports.export_pdf">تصدير PDF</span></button>
+                        <button id="export-excel-btn" class="btn-secondary"><i class="bx bxs-file-spreadsheet icon"></i> <span data-i18n="reports.export_excel">تصدير Excel</span></button>
+                    </div>
+                </div>
+                <div id="reports-container" class="reports-grid">
+                    <div class="report-widget card">
+                        <h3 data-i18n="reports.sales_overview">نظرة عامة على المبيعات</h3>
+                        <canvas id="sales-over-time-chart"></canvas>
+                    </div>
+                    <div class="report-widget card">
+                        <h3 data-i18n="reports.category_breakdown">المنتجات حسب الفئة</h3>
+                        <canvas id="category-breakdown-chart"></canvas>
+                    </div>
+                    <div class="report-widget card full-width">
+                        <h3 data-i18n="reports.top_selling">المنتجات الأكثر مبيعاً</h3>
+                        <canvas id="top-selling-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div id="settings-page" class="page">
+                <section class="card" role="region" aria-labelledby="account-settings-title">
+                    <header class="card-header">
+                        <h3 id="account-settings-title" data-i18n="settings.account_settings">إعدادات الحساب</h3>
+                    </header>
+                    <div class="card-body">
+                        <form id="settings-form" class="form-grid" aria-describedby="settings-form-desc">
+                            <p id="settings-form-desc" class="visually-hidden" data-i18n="settings.form_desc">نموذج لتحديث معلومات الحساب.</p>
+                            <div class="form-group">
+                                <label for="setting-username" data-i18n="settings.labels.username">اسم المستخدم</label>
+                                <div class="input-wrapper">
+                                    <input type="text" id="setting-username" placeholder="ادخل اسم المستخدم" data-i18n-attr="placeholder" data-i18n-placeholder="settings.placeholders.username">
+                                    <i class="bx bx-user"></i>
+                                </div>
+                                <small data-i18n="settings.errors.generic">رسالة خطأ</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="setting-email" data-i18n="settings.labels.email">البريد الإلكتروني</label>
+                                <div class="input-wrapper">
+                                    <input type="text" id="setting-email" placeholder="ادخل البريد الإلكتروني" data-i18n-attr="placeholder" data-i18n-placeholder="settings.placeholders.email">
+                                    <i class="bx bx-envelope"></i>
+                                </div>
+                                <small data-i18n="settings.errors.generic">رسالة خطأ</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="setting-password" data-i18n="settings.labels.password">كلمة المرور</label>
+                                <div class="input-wrapper">
+                                    <input type="password" id="setting-password" placeholder="ادخل كلمة المرور" data-i18n-attr="placeholder" data-i18n-placeholder="settings.placeholders.password">
+                                    <i class="bx bx-lock-alt"></i>
+                                </div>
+                                <small data-i18n="settings.errors.generic">رسالة خطأ</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="setting-password2" data-i18n="settings.labels.password_confirm">تأكيد كلمة المرور</label>
+                                <div class="input-wrapper">
+                                    <input type="password" id="setting-password2" placeholder="أعد إدخال كلمة المرور" data-i18n-attr="placeholder" data-i18n-placeholder="settings.placeholders.password_confirm">
+                                    <i class="bx bx-lock-alt"></i>
+                                </div>
+                                <small data-i18n="settings.errors.generic">رسالة خطأ</small>
+                            </div>
+                            <button type="submit" class="btn-primary"><i class="bx bx-save icon"></i> <span data-i18n="settings.save_changes">حفظ التغييرات</span></button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Templates -->
+        <template id="tpl-add-user-modal">
+            <div class="modal-overlay" id="add-user-modal-overlay" aria-hidden="true">
+                <div class="modal" role="dialog" aria-modal="true" aria-labelledby="add-user-title">
+                    <div class="modal-header">
+                        <h2 id="add-user-title" data-i18n="forms.add_user_title">إضافة مستخدم جديد</h2>
+                        <button id="close-modal-btn" aria-label="إغلاق" data-i18n-attr="aria-label" data-i18n-key-aria-label="common.close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-grid" aria-describedby="add-user-desc">
+                            <p id="add-user-desc" class="visually-hidden">املأ الحقول التالية لإضافة مستخدم جديد.</p>
+                            <div class="form-group">
+                                <label for="username" data-i18n="settings.labels.username">اسم المستخدم</label>
+                                <div class="input-wrapper">
+                                    <input type="text" id="username" data-i18n-attr="placeholder" data-i18n-placeholder="settings.placeholders.username">
+                                    <i class="bx bx-user"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-i18n="settings.labels.email">البريد الإلكتروني</label>
+                                <div class="input-wrapper">
+                                    <input type="email" id="email" data-i18n-attr="placeholder" data-i18n-placeholder="settings.placeholders.email">
+                                    <i class="bx bx-envelope"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="role">الدور</label>
+                                <div class="input-wrapper">
+                                    <select id="role">
+                                        <option value="admin" data-i18n="roles.admin">مدير</option>
+                                        <option value="editor" data-i18n="roles.editor">محرر</option>
+                                        <option value="viewer" data-i18n="roles.viewer">مشاهد</option>
+                                    </select>
+                                    <i class="bx bx-chevron-down"></i>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-primary"><i class="bx bx-save icon"></i> <span data-i18n="common.save">حفظ</span></button>
+                        <button class="btn-secondary" id="cancel-modal-btn"><i class="bx bx-x icon"></i> <span data-i18n="common.cancel">إلغاء</span></button>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="tpl-project-row">
+            <tr>
+                <td data-cell="name"></td>
+                <td data-cell="department"></td>
+                <td data-cell="status">
+                    <span class="status"></span>
+                </td>
+            </tr>
+        </template>
+
+        <template id="tpl-user-row">
+            <tr>
+                <td data-cell="name"></td>
+                <td data-cell="email"></td>
+                <td data-cell="role"></td>
+                <td data-cell="actions">
+                    <button class="btn-icon" aria-label="تعديل"><i class="bx bx-pencil icon"></i></button>
+                    <button class="btn-icon" aria-label="حذف"><i class="bx bx-trash icon"></i></button>
+                </td>
+            </tr>
+        </template>
+
+        <template id="tpl-notification-item">
+            <div class="notification-item" role="menuitem">
+                <div class="notification-text"></div>
+                <button class="btn-icon mark-as-read" aria-label="وضع علامة كمقروء">
+                    <i class="bx bx-check-circle icon"></i>
+                </button>
+            </div>
+        </template>
+
+        <!-- Template for a single product card -->
+        <template id="tpl-product-card">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/300x300" alt="">
+                </div>
+                <div class="product-info">
+                    <h4 class="product-title"></h4>
+                    <p class="product-category"></p>
+                    <p class="product-price"></p>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-icon edit-product-btn" aria-label="تعديل المنتج"><i class="bx bx-pencil icon"></i></button>
+                    <button class="btn-icon delete-product-btn" aria-label="حذف المنتج"><i class="bx bxs-trash icon"></i></button>
+                </div>
+            </div>
+        </template>
+
+        <!-- Template for the Add/Edit Product Modal -->
+        <template id="tpl-add-product-modal">
+            <div class="modal-overlay" id="add-product-modal-overlay" aria-hidden="true">
+                <div class="modal" role="dialog" aria-modal="true" aria-labelledby="add-product-title">
+                    <div class="modal-header">
+                        <h2 id="add-product-title" data-i18n="products.add_modal_title">إضافة منتج جديد</h2>
+                        <button id="close-product-modal-btn" aria-label="إغلاق" data-i18n-attr="aria-label" data-i18n-key-aria-label="common.close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="product-form" class="form-grid" aria-describedby="add-product-desc">
+                            <p id="add-product-desc" class="visually-hidden">املأ الحقول لإضافة منتج.</p>
+                            <input type="hidden" id="product-id">
+                            <div class="form-group">
+                                <label for="product-title" data-i18n="products.form.title">اسم المنتج</label>
+                                <div class="input-wrapper">
+                                    <input type="text" id="product-title" required>
+                                    <i class="bx bx-purchase-tag"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-price" data-i18n="products.form.price">السعر</label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="product-price" required min="0" step="0.01">
+                                    <i class="bx bx-dollar"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-category" data-i18n="products.form.category">الفئة</label>
+                                <div class="input-wrapper">
+                                    <input type="text" id="product-category" required>
+                                    <i class="bx bx-category"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-image" data-i18n="products.form.image_url">رابط الصورة</label>
+                                <div class="input-wrapper">
+                                    <input type="url" id="product-image">
+                                    <i class="bx bx-link"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-description" data-i18n="products.form.description">الوصف</label>
+                                <div class="input-wrapper">
+                                    <textarea id="product-description" rows="3"></textarea>
+                                    <i class="bx bx-comment-detail"></i>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" form="product-form" class="btn-primary"><i class="bx bx-save icon"></i> <span data-i18n="common.save">حفظ</span></button>
+                        <button type="button" class="btn-secondary" id="cancel-product-modal-btn"><i class="bx bx-x icon"></i> <span data-i18n="common.cancel">إلغاء</span></button>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="js/i18n.js" defer></script>
+    <script src="js/main.js" type="module"></script>
+    </body>
+</html>
