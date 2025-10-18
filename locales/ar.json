@@ -1,0 +1,132 @@
+{
+  "app": {
+    "title": "DashMaster",
+    "current_language": "العربية",
+    "change_language": "تغيير اللغة"
+  },
+  "sidebar": {
+    "dashboard": "الرئيسية",
+    "users": "المستخدمون",
+    "settings": "الإعدادات",
+    "products": "المنتجات",
+    "reports": "التقارير"
+  },
+  "dashboard": {
+    "title": "نظرة عامة على لوحة التحكم",
+    "recent_projects": "المشاريع الحديثة",
+    "new_customers": "العملاء الجدد",
+    "cards": {
+      "customers": "العملاء",
+      "projects": "المشاريع",
+      "orders": "الطلبات",
+      "income": "الدخل"
+    }
+  },
+  "forms": {
+    "search_placeholder": "ابحث في الجدول...",
+    "add_user_button": "إضافة مستخدم جديد",
+    "add_user_title": "إضافة مستخدم جديد",
+    "filter_status_all": "كل الحالات"
+  },
+  "notifications": {
+    "items_count": {
+      "zero": "لا توجد إشعارات",
+      "one": "إشعار واحد",
+      "two": "إشعاران",
+      "few": "{count} إشعارات",
+      "many": "{count} إشعارًا",
+      "other": "{count} إشعار"
+    },
+    "sample": {
+      "new_project": "مشروع جديد تم إضافته",
+      "user_updated": "قام المستخدم \"علي\" بتحديث ملفه الشخصي",
+      "password_expiring": "كلمة المرور ستنتهي قريباً"
+    },
+    "view_all": "عرض كل الإشعارات"
+  },
+  "format": {
+    "example_number": "{num, number}",
+    "example_date": "{date, date}"
+  },
+  "header": {
+    "welcome_back": "أهلاً بك مجدداً",
+    "notifications": "عرض الإشعارات"
+  },
+  "common": {
+    "view_all": "عرض الكل",
+    "close": "إغلاق",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "skip_to_main": "تخطي إلى المحتوى الرئيسي",
+    "view_details": "عرض التفاصيل"
+  },
+  "charts": {
+    "revenue_aria": "مخطط يوضح الدخل خلال الأشهر"
+  },
+  "users": {
+    "all_users": "كل المستخدمين",
+    "table_placeholder": "هنا جدول بأسماء المستخدمين...",
+    "table_header": {
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "role": "الدور",
+      "actions": "الإجراءات"
+    }
+  },
+  "products": {
+    "title": "صفحة المنتجات",
+    "description": "هنا محتوى صفحة إدارة المنتجات.",
+    "manage_products": "إدارة المنتجات",
+    "add_button": "إضافة منتج جديد",
+    "add_modal_title": "إضافة منتج جديد",
+    "form": {
+      "title": "اسم المنتج",
+      "price": "السعر",
+      "category": "الفئة",
+      "image_url": "رابط الصورة",
+      "description": "الوصف"
+    }
+  },
+  "reports": {
+    "title": "صفحة التقارير",
+    "description": "هنا محتوى صفحة التقارير.",
+    "export_pdf": "تصدير PDF",
+    "export_excel": "تصدير Excel",
+    "sales_overview": "نظرة عامة على المبيعات",
+    "category_breakdown": "المنتجات حسب الفئة",
+    "top_selling": "المنتجات الأكثر مبيعاً"
+  },
+  "settings": {
+    "account_settings": "إعدادات الحساب",
+    "form_desc": "نموذج لتحديث معلومات الحساب.",
+    "labels": {
+      "username": "اسم المستخدم",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "password_confirm": "تأكيد كلمة المرور"
+    },
+    "placeholders": {
+      "username": "ادخل اسم المستخدم",
+      "email": "ادخل البريد الإلكتروني",
+      "password": "ادخل كلمة المرور",
+      "password_confirm": "أعد إدخال كلمة المرور"
+    },
+    "errors": {
+      "generic": "رسالة خطأ"
+    },
+    "save_changes": "حفظ التغييرات"
+  },
+  "roles": {
+    "admin": "مدير",
+    "editor": "محرر",
+    "viewer": "مشاهد"
+  },
+  "user": {
+    "name": "اسم المستخدم",
+    "role": "مدير"
+  },
+  "theme": {
+    "to_dark": "التبديل إلى الوضع الداكن",
+    "to_light": "التبديل إلى الوضع الفاتح"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "app": {
+    "title": "DashMaster",
+    "current_language": "English",
+    "change_language": "Change language"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "settings": "Settings",
+    "products": "Products",
+    "reports": "Reports"
+  },
+  "dashboard": {
+    "title": "Dashboard Overview",
+    "recent_projects": "Recent Projects",
+    "new_customers": "New Customers",
+    "cards": {
+      "customers": "Customers",
+      "projects": "Projects",
+      "orders": "Orders",
+      "income": "Income"
+    }
+  },
+  "forms": {
+    "search_placeholder": "Search in table...",
+    "add_user_button": "Add New User",
+    "add_user_title": "Add New User"
+  },
+  "notifications": {
+    "items_count": {
+      "zero": "No notifications",
+      "one": "1 notification",
+      "two": "2 notifications",
+      "few": "{count} notifications",
+      "many": "{count} notifications",
+      "other": "{count} notifications"
+    },
+    "sample": {
+      "new_project": "A new project has been added",
+      "user_updated": "User \"Ali\" updated his profile",
+      "password_expiring": "Password will expire soon"
+    },
+    "view_all": "View all notifications"
+  },
+  "format": {
+    "example_number": "{num, number}",
+    "example_date": "{date, date}"
+  },
+  "header": {
+    "welcome_back": "Welcome back",
+    "notifications": "View notifications"
+  },
+  "common": {
+    "view_all": "View all",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "skip_to_main": "Skip to main content",
+    "view_details": "View Details"
+  },
+  "charts": {
+    "revenue_aria": "Chart showing revenue over months"
+  },
+  "users": {
+    "all_users": "All Users",
+    "table_placeholder": "Here is the users table...",
+    "table_header": {
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "actions": "Actions"
+    }
+  },
+  "products": {
+    "title": "Products Page",
+    "description": "This is the products management content.",
+    "manage_products": "Manage Products",
+    "add_button": "Add New Product",
+    "add_modal_title": "Add New Product",
+    "form": {
+      "title": "Product Name",
+      "price": "Price",
+      "category": "Category",
+      "image_url": "Image URL",
+      "description": "Description"
+    }
+  },
+  "reports": {
+    "title": "Reports Page",
+    "description": "This is the reports content.",
+    "export_pdf": "Export PDF",
+    "export_excel": "Export Excel",
+    "sales_overview": "Sales Overview",
+    "category_breakdown": "Products by Category",
+    "top_selling": "Top Selling Products"
+  },
+  "settings": {
+    "account_settings": "Account Settings",
+    "form_desc": "Form to update account information.",
+    "labels": {
+      "username": "Username",
+      "email": "Email",
+      "password": "Password",
+      "password_confirm": "Confirm Password"
+    },
+    "placeholders": {
+      "username": "Enter username",
+      "email": "Enter email",
+      "password": "Enter password",
+      "password_confirm": "Re-enter password"
+    },
+    "errors": {
+      "generic": "Error message"
+    },
+    "save_changes": "Save Changes"
+  },
+  "roles": {
+    "admin": "Admin",
+    "editor": "Editor",
+    "viewer": "Viewer"
+  },
+  "user": {
+    "name": "Username",
+    "role": "Admin"
+  },
+  "theme": {
+    "to_dark": "Switch to dark mode",
+    "to_light": "Switch to light mode"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "app": {
+    "title": "DashMaster",
+    "current_language": "Français",
+    "change_language": "Changer de langue"
+  },
+  "sidebar": {
+    "dashboard": "Tableau de bord",
+    "users": "Utilisateurs",
+    "settings": "Paramètres",
+    "products": "Produits",
+    "reports": "Rapports"
+  },
+  "dashboard": {
+    "title": "Aperçu du tableau de bord",
+    "recent_projects": "Projets récents",
+    "new_customers": "Nouveaux clients",
+    "cards": {
+      "customers": "Clients",
+      "projects": "Projets",
+      "orders": "Commandes",
+      "income": "Revenu"
+    }
+  },
+  "forms": {
+    "search_placeholder": "Rechercher dans le tableau...",
+    "add_user_button": "Ajouter un nouvel utilisateur",
+    "add_user_title": "Ajouter un nouvel utilisateur"
+  },
+  "notifications": {
+    "items_count": {
+      "zero": "Aucune notification",
+      "one": "1 notification",
+      "two": "2 notifications",
+      "few": "{count} notifications",
+      "many": "{count} notifications",
+      "other": "{count} notifications"
+    },
+    "sample": {
+      "new_project": "Nouveau projet ajouté",
+      "user_updated": "L'utilisateur « Ali » a mis à jour son profil",
+      "password_expiring": "Le mot de passe expirera bientôt"
+    },
+    "view_all": "Voir toutes les notifications"
+  },
+  "format": {
+    "example_number": "{num, number}",
+    "example_date": "{date, date}"
+  },
+  "header": {
+    "welcome_back": "Bon retour",
+    "notifications": "Voir les notifications"
+  },
+  "common": {
+    "view_all": "Tout afficher",
+    "close": "Fermer",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "skip_to_main": "Passer au contenu principal",
+    "view_details": "Voir les détails"
+  },
+  "charts": {
+    "revenue_aria": "Graphique montrant les revenus par mois"
+  },
+  "users": {
+    "all_users": "Tous les utilisateurs",
+    "table_placeholder": "Voici le tableau des utilisateurs…",
+    "table_header": {
+      "name": "Nom",
+      "email": "E-mail",
+      "role": "Rôle",
+      "actions": "Actions"
+    }
+  },
+  "products": {
+    "title": "Page des produits",
+    "description": "Contenu de la gestion des produits.",
+    "manage_products": "Gérer les produits",
+    "add_button": "Ajouter un nouveau produit",
+    "add_modal_title": "Ajouter un nouveau produit",
+    "form": {
+      "title": "Nom du produit",
+      "price": "Prix",
+      "category": "Catégorie",
+      "image_url": "URL de l'image",
+      "description": "Description"
+    }
+  },
+  "reports": {
+    "title": "Page des rapports",
+    "description": "Contenu des rapports.",
+    "export_pdf": "Exporter en PDF",
+    "export_excel": "Exporter en Excel",
+    "sales_overview": "Aperçu des ventes",
+    "category_breakdown": "Produits par catégorie",
+    "top_selling": "Meilleures ventes"
+  },
+  "settings": {
+    "account_settings": "Paramètres du compte",
+    "form_desc": "Formulaire pour mettre à jour les informations du compte.",
+    "labels": {
+      "username": "Nom d'utilisateur",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "password_confirm": "Confirmer le mot de passe"
+    },
+    "placeholders": {
+      "username": "Entrez le nom d'utilisateur",
+      "email": "Entrez l'e-mail",
+      "password": "Entrez le mot de passe",
+      "password_confirm": "Saisissez à nouveau le mot de passe"
+    },
+    "errors": {
+      "generic": "Message d'erreur"
+    },
+    "save_changes": "Enregistrer les modifications"
+  },
+  "roles": {
+    "admin": "Administrateur",
+    "editor": "Éditeur",
+    "viewer": "Lecteur"
+  },
+  "user": {
+    "name": "Nom d'utilisateur",
+    "role": "Administrateur"
+  },
+  "theme": {
+    "to_dark": "Passer en mode sombre",
+    "to_light": "Passer en mode clair"
+  }
+}
