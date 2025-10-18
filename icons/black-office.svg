@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- "Black office" brand icon: minimal briefcase on dark rounded square -->
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Black office icon">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0b1220"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded square background -->
+  <rect x="24" y="24" width="464" height="464" rx="96" fill="url(#bg)"/>
+
+  <!-- Subtle top shine -->
+  <rect x="24" y="24" width="464" height="140" rx="96" fill="url(#shine)"/>
+
+  <!-- Briefcase group -->
+  <g filter="url(#shadow)">
+    <!-- Case body -->
+    <rect x="96" y="184" width="320" height="216" rx="28" fill="#FFFFFF"/>
+    <!-- Case divider -->
+    <rect x="96" y="276" width="320" height="16" fill="#0f172a" opacity="0.15"/>
+    <!-- Latch -->
+    <rect x="246" y="260" width="20" height="40" rx="6" fill="#0f172a" opacity="0.8"/>
+    <!-- Handle base -->
+    <rect x="192" y="148" width="128" height="44" rx="12" fill="#FFFFFF"/>
+    <!-- Handle inner cutout -->
+    <rect x="212" y="156" width="88" height="28" rx="8" fill="#0f172a"/>
+  </g>
+
+  <!-- Subtle BO monogram (optional, very faint) -->
+  <g opacity="0.08">
+    <path d="M150 360h70c26 0 44-16 44-38 0-14-7-25-19-31 9-6 15-16 15-29 0-21-17-35-42-35h-68v133zm38-103h24c7 0 12 4 12 10 0 7-5 11-12 11h-24v-21zm0 51h28c8 0 13 5 13 12 0 7-5 11-13 11h-28v-23z" fill="#ffffff"/>
+    <path d="M360 226c-40 0-72 33-72 74s32 74 72 74 72-33 72-74-32-74-72-74zm0 38c19 0 34 16 34 36s-15 36-34 36-34-16-34-36 15-36 34-36z" fill="#ffffff"/>
+  </g>
+</svg>
